@@ -1,8 +1,17 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 
-import { Layout } from './layout'
-
+import { SearchInput } from './searchInput';
+import { Layout } from './layout';
+import { Favorite } from './favorite/Favorite';
 
 export const App = () => {
-  return <div><Layout /></div>
-}
+  return (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<SearchInput />} />
+        <Route path="favorite" element={<Favorite />} />
+      </Route>
+    </Routes>
+  );
+};
